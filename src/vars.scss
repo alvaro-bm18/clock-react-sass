@@ -1,0 +1,43 @@
+$pointer-hours-color: DeepPink;
+$pointer-minutes-color: DarkViolet;
+$pointer-secons-color: DeepSkyBlue;
+$light-gray: #EEE;
+$dark-gray: #787878;
+$light-color: white;
+
+$blue-light: AliceBlue;
+$blue-semi-dark: azure;
+
+@mixin center {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin on-circle($item-count, $circle-size, $item-size) {
+    @include center;
+    width: $circle-size;
+    height: $circle-size;
+    padding: 0;
+    border-radius: 50%;
+
+    >.hours {
+        position: absolute;
+        display: flex;
+        width: $item-size;
+        height: $item-size;
+        margin: calc(-1 * ($item-size / 2));
+
+        $angle: calc(360 / $item-count);
+        $rot: calc(-90 + $angle);
+
+        @for $i from 1 through $item-count {
+            &:nth-of-type(#{$i}) {
+                transform: rotate($rot * 1deg) translate(calc(($circle-size / 2) - ($item-size / 1.4))) rotate($rot * -1deg);
+            }
+
+            $rot: $rot + $angle;
+        }
+    }
+}

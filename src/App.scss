@@ -1,0 +1,33 @@
+@import './vars.scss';
+
+$pointer-hours-color: DeepPink;
+$pointer-minutes-color: DarkViolet;
+$pointer-secons-color: DeepSkyBlue;
+
+h2{
+    font-family: sans-serif;
+    color: $dark-gray;
+    margin-bottom: 30px;
+}
+.clock-digital {
+    display: flex;
+    gap: 5px;
+    width: fit-content;
+    height: fit-content;
+    font-family: sans-serif;
+    font-size: 18pt;
+    padding: 8pt;
+    margin-top: 30px;
+    background-color: $light-gray;
+    border: 1px solid $dark-gray;
+    border-radius: 4px;
+    :nth-child(1){
+        color:$pointer-hours-color;
+    }
+    :nth-child(2){
+        color:$pointer-minutes-color;
+    }
+    :nth-child(3){
+        color:$pointer-secons-color;
+    }
+}

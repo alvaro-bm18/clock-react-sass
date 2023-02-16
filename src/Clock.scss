@@ -1,0 +1,53 @@
+@import './vars.scss';
+.clock-container {
+    $diametro: 220px;
+    $item: 18px;
+    $item_num: 12;
+
+    @include on-circle($item-count: $item_num, $circle-size: $diametro, $item-size: $item);
+    background-color: $light-gray;
+    border: 1px solid $dark-gray;
+
+    div.hours {
+        align-items: center;
+        justify-content: center;
+        font-size: 8pt;
+    }
+
+    div.dot-center {
+        $wd: calc($item / 2);
+        width: $wd;
+        height: $wd;
+        background-color: $dark-gray;
+        border-radius: 100%;
+        z-index: 100;
+    }
+
+    div[class^="pointer"] {
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform-origin: 0% 0%;
+        transform: rotate(180deg) translate(-50%, 0%);
+        border-radius: 20%;
+    }
+
+    div.pointer-hours {
+        width: 4px;
+        height: 60px;
+        background-color: $pointer-hours-color;
+    }
+
+    div.pointer-minutes {
+        width: 3px;
+        height: 70px;
+        background-color: $pointer-minutes-color;
+    }
+
+    div.pointer-seconds {
+        width: 2px;
+        height: 80px;
+        background-color: $pointer-secons-color;
+    }
+}
